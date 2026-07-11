@@ -6,13 +6,26 @@ Unity・C# で個人開発した、最大 8人対戦 のオンラインレース
 
 ## プレイ動画
 
-▶ プレイ動画はこちら(YouTube・約◯分)
+▶ プレイ動画はこちら(YouTube・約2分)
+https://youtu.be/qeaN4JbaTQ4
 
 ※オンライン対戦のため、動作確認には複数クライアントの起動が必要です。まずは動画をご覧ください。
 
+## プレイURL
+
+https://unityroom.com/games/themarble
+
 ## スクリーンショット
 
-タイトル画面(画像1) / レース中(画像2)
+### タイトル画面
+
+<img width="960" height="540" alt="shotcut1" src="https://github.com/user-attachments/assets/f5ac52db-ece2-4478-8291-3957bc5d4dc2" />
+
+### レース中
+
+<img width="960" height="540" alt="shotcut3" src="https://github.com/user-attachments/assets/170d8b54-73e6-46cc-b804-c192d0b4d63c" />
+
+
 
 ## 主な機能
 
@@ -60,6 +73,3 @@ Unity・C# で個人開発した、最大 8人対戦 のオンラインレース
 
 (利用規約に基づき、音源ファイルはリポジトリに含めていません)
 
-## プレイURL
-
-https://unityroom.com/games/themarble
