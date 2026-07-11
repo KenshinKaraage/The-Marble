@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef3ca309faf17d84ebcf4d541ec47430, type: 3}
+  m_Name: TheTower
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 21300000, guid: 3ce880b226e47d649bfd4d5481952396, type: 3}
+  sceneName: TheTower
+  stageName: "\u30B6\u30FB\u30BF\u30EF\u30FC"
+  type: 0
+  timeLimit: 300
+  visualizeTime: 300
+  BGMName: Lace
+  description: "\u5854\u306E\u5F62\u3092\u3057\u305F\u30A2\u30B9\u30EC\u30C1\u30C3\u30AF\u3092\u30AF\u30EA\u30A2\u305B\u3088\u3002"

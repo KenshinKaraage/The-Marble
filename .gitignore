@@ -1,0 +1,95 @@
+# この .gitignore ファイルは Unity プロジェクトのルートディレクトリに配置してください
+#
+# 最新版はこちらから取得: https://github.com/github/gitignore/blob/main/Unity.gitignore
+#
+.utmp/
+/Library/
+/Temp/
+/obj/
+/Build/
+/Logs/
+/Sounds/
+/UserSettings/
+*.log
+
+# Unity はデフォルトで Blender アセットのインポートをサポートしていますが、*.blend1 ファイルはバージョン管理にコミットする必要はありません。
+*.blend1
+*.blend1.meta
+
+# MemoryCaptures は容量が非常に大きくなることがあります。
+# また、非常に機密性の高いデータを含む場合があります
+/MemoryCaptures/
+
+# Recordings も容量が大きくなることがあります
+/Recordings/
+
+# Asset Store Tools プラグインを無視したい場合はこの行のコメントを解除してください
+# /Assets/AssetStoreTools*
+
+# JetBrains Rider プラグインが自動生成するファイル
+/Assets/Plugins/Editor/JetBrains*
+# JetBrains Rider の個人設定レイヤー
+*.DotSettings.user
+
+# Visual Studio のキャッシュディレクトリ
+.vs/
+
+# Gradle のキャッシュディレクトリ
+.gradle/
+
+# VS/MD/Consulo が自動生成するソリューション・プロジェクトファイル
+ExportedObj/
+.consulo/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D が生成する meta ファイル
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D のクラッシュレポート生成ファイル
+sysinfo.txt
+
+# Mono の自動生成ファイル
+mono_crash.*
+
+# ビルド成果物
+*.apk
+*.aab
+*.unitypackage
+*.unitypackage.meta
+*.app
+
+# Crashlytics 生成ファイル
+crashlytics-build.properties
+
+# TestRunner 生成ファイル
+InitTestScene*.unity*
+
+# Play Mode テストによって自動生成されるシーン
+/[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# ポートフォリオ公開に適さないフォルダ（ライセンス上再配布不可 / 認証情報を含む / サイズが過大）
+/Assets/Sounds/
+/Assets/Sounds.meta
+/Assets/Free Stylized Skybox/
+/Assets/Free Stylized Skybox.meta
+/Assets/Photon/
+/Assets/Photon.meta
+/Assets/Fonts/
+/Assets/Fonts.meta
+
+.DS_Store
