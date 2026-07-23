@@ -7,32 +7,32 @@ using Photon.Realtime;
 public class MarbleController : MonoBehaviourPunCallbacks
 {
     private Rigidbody rb;
-    //�{�[���𓮂������x
+    // ボールを動かす速度
     [SerializeField] float addMoveSpeed;
     public float nowAddMoveSpeed;
-    //�{�[���̍ő呬�x
+    // ボールの最大速度
     [SerializeField] float maxMoveSpeed;
     public float nowMaxMoveSpeed;
-    //�{�[�����~�܂�܂łɂ����鎞��
+    // ボールが止まるまでにかかる時間
     [SerializeField] float stopTime;
 
-    //�{�[���̔{���x
+    // ボールの倍率速度
     public float MuntiSpeed { set; get; }
     public float MuntiSpeedTime { set; get; }
 
-    //�{�[���̗͂������ꏊ
+    // ボールに力を加える場所
     [SerializeField] Vector3 forcePoint;
-    //�{�[����]���x
+    // ボールの回転速度
     [SerializeField] float rotateSpeed;
-    //�}�E�X���x
+    // マウス感度
     [SerializeField] float mouseSensitivity;
 
-    //�n�ʃ��C���[
+    // 地面レイヤー
     [SerializeField] LayerMask groundLayers;
-    //�W�����v����ۂɉ����͂̑傫��
+    // ジャンプする際に加える力の大きさ
     [SerializeField] Vector3 jumpForce;
 
-    //�v���C���[�t�H�����[
+    // プレイヤーフォロワー
     [SerializeField] Transform playerFollowerTransform;
     private void Awake()
     {
@@ -50,34 +50,33 @@ public class MarbleController : MonoBehaviourPunCallbacks
         {
             if (InputManager.instance.IsAttractive)
             {
-                //�{�[������L�[�œ�����
+                // ボールをキーで動かす
                 Move();
 
-                //��ɂ���ă{�[���̑��x��������
+                // 床によってボールの速度を加える
                 AddVelocity();
 
-                //�X�s�[�h��������
+                // 速度の倍率を調整
                 AdjustMuntiVelocity();
 
-                //���x�ɂ���ĉ�]�����𒲐�
+                // 速度によって回転方向を調整
                 ControllRotation();
 
-                //�X�y�[�X�L�[�ŃW�����v����
+                // スペースキーでジャンプする
                 Jump();
             }
             
 
-            //���_���}�E�X�ő��삷��
+            // 視点をマウスで操作する
             ControllView();
 
-            //�v���C���[�t�H�����[�𒲐�
             AdjustPlayerFollowerPosition();
         }
     }
 
     private void Move()
     {
-        //�܂��{�[���ɗ͂�������
+        // まずボールに力を加える方向を求める
         Vector3 moveDir = new Vector3(
             Input.GetAxisRaw("Horizontal"),
             0,
@@ -87,7 +86,7 @@ public class MarbleController : MonoBehaviourPunCallbacks
         nowAddMoveSpeed = addMoveSpeed * MuntiSpeed;
         nowMaxMoveSpeed = maxMoveSpeed * MuntiSpeed;
 
-        //������̑��x�������𒴂����ꍇ�A���̕����ɗ͉͂����Ȃ�
+        // 決めた最大速度を超えた場合、その方向に力が入らない
         if (Input.GetAxisRaw("Horizontal") > 0 && Vector3.Dot(playerFollowerTransform.right, rb.linearVelocity) > nowMaxMoveSpeed)
         {
             moveDir.x = 0;
@@ -111,9 +110,9 @@ public class MarbleController : MonoBehaviourPunCallbacks
         rb.AddForce(force, ForceMode.Force);
 
 
-        //�L�[�̓��͂��Ȃ��ꍇ�A���x�𗎂Ƃ�
+        // キーの入力がない場合、速度を落とす
         Vector3 velocity = rb.linearVelocity;
-        //������̑��x�������𒴂����ꍇ�A���̕�������͕ω����Ȃ�
+        // 決めた最大速度を超えた場合、その方向の速度は変化しない
         
         if (Input.GetAxisRaw("Horizontal") == 0 && Mathf.Abs(Vector3.Dot(playerFollowerTransform.right, rb.linearVelocity)) < nowMaxMoveSpeed)
         {
@@ -157,7 +156,7 @@ public class MarbleController : MonoBehaviourPunCallbacks
             {
                 MuntiSpeed = 1;
 
-                //���x�����Ƃ�
+                // 速度を元に戻す
                 Vector3 velocity = rb.linearVelocity;
 
                 velocity.x = Mathf.Clamp(velocity.x, -maxMoveSpeed, maxMoveSpeed);
@@ -174,12 +173,11 @@ public class MarbleController : MonoBehaviourPunCallbacks
 
     void ControllView()
     {
-        //�ϐ��̃��[�U�[�̃}�E�X�̓������i�[
         Vector3 mouseInput = new Vector2(Input.GetAxisRaw("Mouse X") * mouseSensitivity,
             0
             );
 
-        //�}�E�X��x���̓����𔽉f
+        // マウスのx軸の動きを反映
         playerFollowerTransform.rotation = Quaternion.Euler(playerFollowerTransform.eulerAngles.x,
             playerFollowerTransform.eulerAngles.y + mouseInput.x,
             playerFollowerTransform.eulerAngles.z);
@@ -193,10 +191,9 @@ public class MarbleController : MonoBehaviourPunCallbacks
         }
     }
 
-    //�n�ʂɂ��Ă����true
+    // 地面についていたらtrue
     public bool IsGround()
     {
-        //���肵��bool�l��Ԃ�
         return Physics.Raycast(playerFollowerTransform.position, Vector3.down, 0.75f, groundLayers);
     }
 

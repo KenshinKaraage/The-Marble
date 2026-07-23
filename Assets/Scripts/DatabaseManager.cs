@@ -11,7 +11,7 @@ public class DatabaseManager : MonoBehaviour
 
     public List<SceneData> sceneDataList = new List<SceneData>();
     public int MaxPlaySceneNum;
-    //�}�X�^�[�p
+    // マスター用
     public int NowSceneNum { set; get; }
     public bool[] IsGoneList;
 

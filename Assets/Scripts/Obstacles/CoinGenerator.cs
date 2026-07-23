@@ -66,7 +66,7 @@ public class CoinGenerator : MonoBehaviourPunCallbacks
         timer += Time.deltaTime;
         if (timer > generateInterval)
         {
-            //�X�e�[�W�ɂ���R�C���̐����ő�l�𒴂����ꍇ�A���^�[��
+            // ステージにあるコインの数が最大値を超えた場合、リターン
             if (NowCoinNumber() >= maxCoinNumber)
             {
                 return;
@@ -75,7 +75,7 @@ public class CoinGenerator : MonoBehaviourPunCallbacks
             timer = 0;
 
             int transformCode;
-            //�O�̂��߁A���s�񐔂���`����B
+            // 念のため、実行回数を制限する。
             int count = 0;
 
             while (true)

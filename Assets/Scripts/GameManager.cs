@@ -230,7 +230,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
             StartCoroutine(ClearCoroutine());
 
-            //�j���[�X�^�O�����
+            // ニュースタグを生成
             photonView.RPC(nameof(GenerateNewsTag), RpcTarget.All, PhotonNetwork.LocalPlayer);
         }
     }
@@ -283,7 +283,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         yield return ui.GetGoalAppearSequence().WaitForCompletion();
         ui.GetGoalDisappearSequence();
         photonView.RPC(nameof(AddClearedMember), RpcTarget.All);
-        //�S�[����ɃJ�����𓮂�����悤�ɂ���
+        // ゴール後にカメラを動かせるようにする
         cameraAfterGoal.IsActive = true;
         cameraAfterGoal.ResetPosition();
     }
@@ -306,10 +306,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         hashtable["Score"] = nowScore + (float)value;
 
         PhotonNetwork.LocalPlayer.SetCustomProperties(hashtable);
-        //�܃|�C���g�ȏ�Ȃ�j���[�X�^�O��\��
+        // 一定ポイント以上ならニュースタグを表示
         if (value >= 5)
         {
-            //�j���[�X�^�O�����
+            // ニュースタグを生成
             photonView.RPC(nameof(GenerateNewsTag), RpcTarget.All, PhotonNetwork.LocalPlayer);
         }
     }
@@ -327,7 +327,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 if (DatabaseManager.instance.NowSceneNum == DatabaseManager.instance.MaxPlaySceneNum)
                 {
-                    //�����Ȃ胊�U���g�V�[����
+                    // 最後なのでリザルトシーンへ
                     PhotonNetwork.LoadLevel("FinalResult");
                 }
                 else
@@ -338,7 +338,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
     }
 
-    //�v���C���[���������Ƃ��΍�(�e�L�X�g��ς��邾��)
+    // プレイヤーが抜けたときの対策(テキストを変えるだけ)
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         ui.ChangeStatusText(numberOfClearedMember, PhotonNetwork.CurrentRoom.PlayerCount);
