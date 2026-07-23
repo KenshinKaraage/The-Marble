@@ -6,8 +6,7 @@ Unity・C# で個人開発した、最大 8人対戦 のオンラインレース
 
 ## プレイ動画
 
-▶ プレイ動画はこちら(YouTube・約2分)
-https://youtu.be/qeaN4JbaTQ4
+<video src="Assets/Movie/themarble_demo.mp4" controls width="100%"></video>
 
 ※オンライン対戦のため、動作確認には複数クライアントの起動が必要です。まずは動画をご覧ください。
 
@@ -64,7 +63,7 @@ https://unityroom.com/games/themarble
 | 移動 | WASD または矢印キー |
 | 視点操作 | マウス |
 | ジャンプ | Space |
-| ポーズ | 画面内のポーズボタン(UIクリック) |
+| ポーズ | ホーム画面の歯車ボタン(UIクリック) |
 
 ## クレジット
 
