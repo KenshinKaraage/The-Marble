@@ -6,7 +6,8 @@ Unity・C# で個人開発した、最大 8人対戦 のオンラインレース
 
 ## プレイ動画
 
-<video src="Assets/Movie/themarble_demo.mp4" controls width="100%"></video>
+https://github.com/user-attachments/assets/0fa3b0a5-21b0-4665-a0c7-d611e9520abe
+
 
 ※オンライン対戦のため、動作確認には複数クライアントの起動が必要です。まずは動画をご覧ください。
 
